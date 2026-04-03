@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `plaqnmfo_fast.dathpagefederalunion.online`
+-- Database: `plaqnmfo_template.dathpagefederalunion.online`
 --
 
 -- --------------------------------------------------------
@@ -1847,7 +1847,7 @@ CREATE TABLE `smtp_setting` (
 --
 
 INSERT INTO `smtp_setting` (`id`, `host`, `username`, `smtp_from`, `password`, `port`, `display_name`, `smtp_auth`) VALUES
-(1, 'fast.dathpagefederalunion.online', 'support@fast.dathpagefederalunion.online', 'support@fast.dathpagefederalunion.online', 'Omo4real@', '465', 'DathPage Federal Union', 'ssl');
+(1, 'template.dathpagefederalunion.online', 'support@template.dathpagefederalunion.online', 'support@template.dathpagefederalunion.online', 'Omo4real@', '465', 'DathPage Federal Union', 'ssl');
 
 -- --------------------------------------------------------
 
