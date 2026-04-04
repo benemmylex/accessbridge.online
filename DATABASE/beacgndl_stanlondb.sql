@@ -39,6 +39,7 @@ CREATE TABLE `accounts` (
   `savings_balance` varchar(255) DEFAULT '0',
   `loan_balance` varchar(255) DEFAULT '0',
   `current_balance` varchar(255) DEFAULT '0',
+  `hold_amount` decimal(16,2) DEFAULT '0.00',
   `acct_status` varchar(50) DEFAULT 'hold' COMMENT 'active, hold',
   `kyc_status` int(11) DEFAULT 0 COMMENT '1=Approved, 2=processing, 0=Pending',
   `kyc_pending` int(11) NOT NULL DEFAULT 1 COMMENT '1 = approved, 0 = pending',

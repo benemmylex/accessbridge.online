@@ -75,7 +75,7 @@ $SavingsBalance = $row['savings_balance'];
                                             <td><?= $row['acct_currency'] ?><?php echo number_format($SavingsBalance, 2, '.', ','); ?></td>
                                             <td><?= $row['acct_currency'] ?><?php echo number_format($CurrentBalance, 2, '.', ','); ?></td>
                                             
-                                            <td><?php echo $userStatus ?></td>
+                                            <td><?= $row['acct_status'] === 'hold' ? 'SUSPENDED' : strtoupper($row['acct_status']) ?></td>
                                             <td><?= $row['createdAt'] ?></td>
                                             <td class="text-center">
                                                 <a href="./view_users.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">View</a>

@@ -41,8 +41,10 @@ function userStatus($row)
     }
 
     if ($row['acct_status'] === 'hold') {
-        return 'ON HOLD';
+        return 'SUSPENDED';
     }
+
+    return strtoupper($row['acct_status'] ?? 'UNKNOWN');
 }
 
 // Connect to the database

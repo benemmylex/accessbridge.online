@@ -43,7 +43,7 @@ if (isset($_POST['domestic-transfer'])) {
     } elseif ($payment_account == "current_account" AND $checkFee > $row['current_balance']) {
         toast_alert('error', 'Insufficient Current Balance');
     } elseif ($row['acct_status'] == 'hold') {
-        toast_alert('error', 'We have discovered suspicious activities on your account. An unauthorized IP attempted to carry out a transaction on your account. Consequently, the system has flagged your account to protect your funds. Kindly visit our nearest branch with your identification card and utility bill to confirm your identity and reactivation. Otherwise, contact the online customer service at support@monzomaxunion.online.');
+        toast_alert('error', 'Your account is suspended. Withdrawals and transfers are blocked. Contact support at ' . $page['website_email']);
     } elseif ($amount > $DomesticLimit) {
         toast_alert("error", "Transfer Limit Extended!");
     } elseif ($amount < $TransferLimit) {

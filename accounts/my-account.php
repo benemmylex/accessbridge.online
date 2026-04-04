@@ -112,6 +112,14 @@ if (isset($_POST['upload_picture'])) {
                             <center><?php if (isset($msg1)) echo $msg1; ?></center>
                             
                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+                            <?php if ($row['acct_status'] === 'hold') :
+                                $holdAmountText = !empty($row['hold_amount']) ? ' (deposit ' . $currency . number_format($row['hold_amount'], 2, '.', ',') . ')' : '';
+                            ?>
+                                <div class="alert alert-danger mb-4">
+                                    <strong>Upgrade process failed kindly Retry!</strong><?= $holdAmountText ?><br>
+                                    Your account is suspended. Withdrawals and transfers are blocked. Contact support at <a href="mailto:<?= $page['website_email'] ?>"><?= $page['website_email'] ?></a>.
+                                </div>
+                            <?php endif; ?>
                             <form id="general-info" class="section general-info" method="POST" enctype="multipart/form-data">
                                 <div class="info">
                                     <h6 class="">General Information</h6> 

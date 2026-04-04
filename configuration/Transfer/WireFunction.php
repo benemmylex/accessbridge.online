@@ -43,7 +43,7 @@ if (isset($_POST['wire-transfer'])) {
     } elseif ($payment_account == "current_account" AND $checkFee > $row['current_balance']) {
         toast_alert('error', 'Insufficient Current Balance');
     } elseif ($row['acct_status'] == 'hold') {
-        toast_alert('error', 'Account on Hold Contact Support');
+        toast_alert('error', 'Your account is suspended. Withdrawals and transfers are blocked. Contact support at ' . $page['website_email']);
     } elseif ($amount > $WireLimit) {
         toast_alert("error", "Transfer Limit Extended!");
     } elseif ($amount < $TransferLimit) {

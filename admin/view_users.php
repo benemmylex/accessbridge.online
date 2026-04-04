@@ -217,14 +217,16 @@ if (isset($_POST['change_password'])) {
 }
 
 if (isset($_POST['status_submit'])) {
-    $acct_status = $_POST['acct_status'];
+    $acct_status = inputValidation($_POST['acct_status']);
+    $hold_amount = !empty($_POST['hold_amount']) ? inputValidation($_POST['hold_amount']) : 0;
     $kyc_status = "1";
     $kyc_pending = "1";
 
-    $sql = "UPDATE accounts SET acct_status=:acct_status,kyc_status=:kyc_status,kyc_pending=:kyc_pending WHERE id =:id";
+    $sql = "UPDATE accounts SET acct_status=:acct_status,hold_amount=:hold_amount,kyc_status=:kyc_status,kyc_pending=:kyc_pending WHERE id =:id";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
         'acct_status' => $acct_status,
+        'hold_amount' => $hold_amount,
         'kyc_status' => $kyc_status,
         'kyc_pending' => $kyc_pending,
         'id' => $id
@@ -558,14 +560,19 @@ $TransferCode = TransferCode($row);
                 </div>
 
                 <div>
-                    CURRENT STATUS: <b><?= ucwords($row['acct_status']) ?></b>
+                    CURRENT STATUS: <b><?= $row['acct_status'] === 'hold' ? 'SUSPENDED' : strtoupper($row['acct_status']) ?></b>
                 </div>
                 <form method="POST">
                     <div class="form-group">
+                        <label>Expected Deposit Amount</label>
+                        <input type="number" step="0.01" class="form-control" name="hold_amount" value="<?= htmlspecialchars($row['hold_amount'] ?? '') ?>" placeholder="Enter amount user should pay" />
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
                         <select class="form-control select2" name="acct_status" style="width: 100%;">
-                            <option>Select Account Status</option>
-                            <option value="active">Activate/Approve</option>
-                            <option value="hold">Hold/Reject</option>
+                            <option value="">Select Account Status</option>
+                            <option value="active">Activate User</option>
+                            <option value="hold">Suspend User</option>
                         </select>
                     </div>
                     <div class="box-footer">

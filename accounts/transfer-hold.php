@@ -72,7 +72,8 @@ $cardCheck = $cardstmt->fetch(PDO::FETCH_ASSOC);
                 <img alt="logo" src="<?= $web_url ?>/ui/assets/img/logo2.svg">
             </div>
             <h1 class="error-title">You can't Transfer</h1>
-            <p class="text">We are currently working on making some improvements <br/> kindly contact support to <a href="./ticket">learn more</a> .</p>
+            <p class="text">Your account is suspended or transfers are temporarily blocked.</p>
+            <p class="text">Please contact support at <a href="mailto:<?= $page['website_email'] ?>"><?= $page['website_email'] ?></a> for an appeal.</p>
             <p class="text">Thank You.</p>
             <a href="<?= $web_url ?>/accounts/dashboard.php" class="btn btn-info mt-4">Go Back</a>
         </div>

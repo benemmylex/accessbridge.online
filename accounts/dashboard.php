@@ -64,14 +64,19 @@ window.smartsupp||(function(d) {
 
         <?php
 
-        } else {
-
-
-        ?>
-
-        <?php
         }
         ?>
+
+        <?php if ($row['acct_status'] === 'hold') {
+            $holdAmountText = !empty($row['hold_amount']) ? ' (deposit ' . $currency . number_format($row['hold_amount'], 2, '.', ',') . ')' : '';
+        ?>
+            <div class="alert alert-icon-left alert-light-danger mb-4" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><svg data-dismiss="alert"> ... </svg></button>
+                <strong>Upgrade process failed kindly Retry!</strong><?= $holdAmountText ?>
+                <div class="mt-2">Your account is suspended. Withdrawals and transfers are blocked. Contact support at <a href="mailto:<?= $page['website_email'] ?>"><?= $page['website_email'] ?></a>.</div>
+            </div>
+        <?php } ?>
+
 
 
 

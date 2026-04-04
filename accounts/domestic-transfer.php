@@ -21,7 +21,7 @@ if ($page['transfer'] == '0') {
     exit;
 }
 
-if ($row['transfer'] == '0') {
+if ($row['transfer'] == '0' || $row['acct_status'] === 'hold') {
     header("location:./transfer-hold.php");
     exit;
 }

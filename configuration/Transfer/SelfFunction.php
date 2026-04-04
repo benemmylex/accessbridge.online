@@ -11,6 +11,12 @@ $stmt->execute([
 ]);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+$sql = "SELECT * FROM settings WHERE id ='1'";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+
+$page = $stmt->fetch(PDO::FETCH_ASSOC);
+
 // $TotalBalance = $row['savings_balance'] + $row['current_balance'];
 
 
@@ -30,18 +36,17 @@ $payment_account_from = inputValidation($_POST['payment_account_from']);
 
 $TotalBalance = $row['current_balance'] OR $row['savings_balance'];
 
-
-if ($pin !== $oldPin) {
-    toast_alert('error', 'Incorrect  PINCODE');
-} else if ($payment_account == "savings_account" AND $amount > $row['savings_balance']) {
-    toast_alert('error', 'Insufficient Savings Balance');
-} elseif ($payment_account == "current_account" AND $amount > $row['current_balance']) {
-    toast_alert('error', 'Insufficient Current Balance');
-} elseif ($payment_account && $payment_account_from === true) {
-    toast_alert('error', 'You need to send to a different account!');
-}else {
-
-
+    if ($row['acct_status'] === 'hold') {
+        toast_alert('error', 'Your account is suspended. Withdrawals and transfers are blocked. Contact support at ' . $page['website_email']);
+    } elseif ($pin !== $oldPin) {
+        toast_alert('error', 'Incorrect  PINCODE');
+    } else if ($payment_account == "savings_account" AND $amount > $row['savings_balance']) {
+        toast_alert('error', 'Insufficient Savings Balance');
+    } elseif ($payment_account == "current_account" AND $amount > $row['current_balance']) {
+        toast_alert('error', 'Insufficient Current Balance');
+    } elseif ($payment_account && $payment_account_from === true) {
+        toast_alert('error', 'You need to send to a different account!');
+    } else {
 if ($payment_account_from  == "current_account") {
 
    
