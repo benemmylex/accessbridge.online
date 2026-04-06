@@ -1,10 +1,10 @@
 <?php
 // Change Bank Name
-define("WEB_TITLE","DathPage Federal Union"); 
+define("WEB_TITLE","Access Bridge"); 
 // Change Web URL https://domain.com or https://sud.domain.com  with No Ending splash "/"
-define("WEB_URL","https://template.dathpagefederalunion.online"); 
+define("WEB_URL","https://accessbridge.online"); 
 // Change Your Website Email
-define("WEB_EMAIL","support@template.dathpagefederalunion.online"); 
+define("WEB_EMAIL","support@accessbridge.online"); 
 // Change Your Website Phone Number
 define("WEB_PHONE","8788888876"); 
 
@@ -20,11 +20,11 @@ $web_email = WEB_EMAIL;
 function dbConnect(){
     $servername = "localhost";
     //Change Database Username "root"
-    $username = "plaqnmfo_template_dathpagefederalunion_online"; 
+    $username = "capitalr_accessbridge_online"; 
     //Change Database Password ""
-    $password = "template.dathpagefederalunion.online";
+    $password = "accessbridge.online";
     //Change Database ""
-    $database = "plaqnmfo_template.dathpagefederalunion.online";
+    $database = "capitalr_accessbridge.online";
     //Do not edit... That's all
     $dns = "mysql:host=$servername;dbname=$database";
 

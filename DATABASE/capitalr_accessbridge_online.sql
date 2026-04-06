@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 03, 2026 at 11:34 AM
+-- Generation Time: Apr 06, 2026 at 07:48 AM
 -- Server version: 11.4.10-MariaDB-cll-lve-log
 -- PHP Version: 8.3.30
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `plaqnmfo_template.dathpagefederalunion.online`
+-- Database: `capitalr_accessbridge.online`
 --
 
 -- --------------------------------------------------------
@@ -39,7 +39,6 @@ CREATE TABLE `accounts` (
   `savings_balance` varchar(255) DEFAULT '0',
   `loan_balance` varchar(255) DEFAULT '0',
   `current_balance` varchar(255) DEFAULT '0',
-  `hold_amount` decimal(16,2) DEFAULT '0.00',
   `acct_status` varchar(50) DEFAULT 'hold' COMMENT 'active, hold',
   `kyc_status` int(11) DEFAULT 0 COMMENT '1=Approved, 2=processing, 0=Pending',
   `kyc_pending` int(11) NOT NULL DEFAULT 1 COMMENT '1 = approved, 0 = pending',
@@ -66,17 +65,19 @@ CREATE TABLE `accounts` (
   `manager_email` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL DEFAULT current_timestamp(),
   `developer_name` varchar(255) DEFAULT '''rrrrrrr''',
-  `Developer_phone` varchar(255) DEFAULT '''2222222222'''
+  `Developer_phone` varchar(255) DEFAULT '''2222222222''',
+  `hold_amount` decimal(16,2) NOT NULL DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `firstname`, `lastname`, `acct_image`, `internetid`, `current_acctno`, `savings_acctno`, `acct_currency`, `savings_balance`, `loan_balance`, `current_balance`, `acct_status`, `kyc_status`, `kyc_pending`, `phoneverify`, `acct_email`, `acct_phone`, `acct_gender`, `acct_dob`, `state`, `acct_ssn`, `acct_address`, `acct_password`, `resettoken`, `resettokenexp`, `billing_code`, `transfer`, `idfront`, `idBack`, `id_no`, `proofaddress`, `acct_pin`, `acct_otp`, `manager_name`, `manager_email`, `createdAt`, `developer_name`, `Developer_phone`) VALUES
-(61, 'Aisha ', 'Gaddafi ', '1202509702IMG-20260322-WA0006.jpg', '1202509702', '36378217450', '67392348811', '$', '00', '00', '15350000', 'hold', 0, 1, 1, 'aishagaddafi7452@gmail.com', '09031595175', 'Female', '1976-12-25', 'Libya ', NULL, '20 street Oman', '$2y$10$jS3TpFbDnNnlGqJ4W06K5eElWkLnw9uG9PoGRbGsv6ryemSYRgZNq', NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, '745212', '750392', NULL, NULL, '2026-03-30 13:41:39', '\'rrrrrrr\'', '\'2222222222\''),
-(62, 'KIM', 'SUNG BUM', '1202285657IMG-20260331-WA0000.jpg', '1202285657', '36378196322', '67392317505', '$', '00', '00', '5350000', 'hold', 0, 1, 1, 'taha6272@daum.net', '01022301250', 'Male', '1957-04-06', 'Republic Korea ', NULL, '96, Guchonmyeon-ro 42-gil, Gangdong-gu, Seoul (Cheonho-dong)', '$2y$10$21wzDmhVFnzpAmZVL5amju07NgiX.XdGYD86CMwv6I2KBXnQw6rEC', NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, '745212', '876545', NULL, NULL, '2026-03-31 04:43:52', '\'rrrrrrr\'', '\'2222222222\''),
-(63, 'Seong', 'Si Kwan', '1202290624IMG_20260331_160848.jpg', '1202290624', '36378315508', '67392187687', '$', '00', '00', '15350000', 'hold', 0, 1, 1, 'sikwan3355@naver.com', '01049798844', 'Male', '1939-02-02', 'Republic of Korea ', NULL, 'B2, 25 Seokcheon-ro 159beon-gil, Manan-gu, Anyang-si, Gyeonggi-do', '$2y$10$2unK62Ou5DWyw4QUx.R3AufAjyDj3W0xYKZnOkqjrH6j20IL5M5lG', NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, '745212', '876545', NULL, NULL, '2026-03-31 11:26:08', '\'rrrrrrr\'', '\'2222222222\'');
+INSERT INTO `accounts` (`id`, `firstname`, `lastname`, `acct_image`, `internetid`, `current_acctno`, `savings_acctno`, `acct_currency`, `savings_balance`, `loan_balance`, `current_balance`, `acct_status`, `kyc_status`, `kyc_pending`, `phoneverify`, `acct_email`, `acct_phone`, `acct_gender`, `acct_dob`, `state`, `acct_ssn`, `acct_address`, `acct_password`, `resettoken`, `resettokenexp`, `billing_code`, `transfer`, `idfront`, `idBack`, `id_no`, `proofaddress`, `acct_pin`, `acct_otp`, `manager_name`, `manager_email`, `createdAt`, `developer_name`, `Developer_phone`, `hold_amount`) VALUES
+(61, 'Aisha ', 'Gaddafi ', '1202509702IMG-20260322-WA0006.jpg', '1202509702', '36378217450', '67392348811', '$', '00', '00', '15350000', 'hold', 0, 1, 1, 'aishagaddafi7452@gmail.com', '09031595175', 'Female', '1976-12-25', 'Libya ', NULL, '20 street Oman', '$2y$10$jS3TpFbDnNnlGqJ4W06K5eElWkLnw9uG9PoGRbGsv6ryemSYRgZNq', NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, '745212', '750392', NULL, NULL, '2026-03-30 13:41:39', '\'rrrrrrr\'', '\'2222222222\'', 0.00),
+(62, 'KIM', 'SUNG BUM', '1202285657IMG-20260331-WA0000.jpg', '1202285657', '36378196322', '67392317505', '$', '00', '00', '5350000', 'hold', 0, 1, 1, 'taha6272@daum.net', '01022301250', 'Male', '1957-04-06', 'Republic Korea ', NULL, '96, Guchonmyeon-ro 42-gil, Gangdong-gu, Seoul (Cheonho-dong)', '$2y$10$21wzDmhVFnzpAmZVL5amju07NgiX.XdGYD86CMwv6I2KBXnQw6rEC', NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, '745212', '876545', NULL, NULL, '2026-03-31 04:43:52', '\'rrrrrrr\'', '\'2222222222\'', 0.00),
+(63, 'Seong', 'Si Kwan', '1202290624IMG_20260331_160848.jpg', '1202290624', '36378315508', '67392187687', '$', '00', '00', '15350000', 'hold', 0, 1, 1, 'sikwan3355@naver.com', '01049798844', 'Male', '1939-02-02', 'Republic of Korea ', NULL, 'B2, 25 Seokcheon-ro 159beon-gil, Manan-gu, Anyang-si, Gyeonggi-do', '$2y$10$2unK62Ou5DWyw4QUx.R3AufAjyDj3W0xYKZnOkqjrH6j20IL5M5lG', NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, '745212', '876545', NULL, NULL, '2026-03-31 11:26:08', '\'rrrrrrr\'', '\'2222222222\'', 0.00),
+(64, 'Ben', 'Emmylex', 'user.png', '1202266026', '36378205843', '67392334244', '$', '0', '0', '0', 'hold', 1, 1, 1, 'benemmylex@gmail.com', '+2342886448046', NULL, NULL, NULL, NULL, NULL, '$2y$10$/eGysYVT4.eCJ8d9fCi03ux7K0DVKx5OSGejvuwDzlwOTejavrhIu', NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, '123456', '876545', NULL, NULL, '2026-04-04 11:28:50', '\'rrrrrrr\'', '\'2222222222\'', 7000.00);
 
 -- --------------------------------------------------------
 
@@ -934,7 +935,9 @@ INSERT INTO `activities` (`id`, `internetid`, `details`, `createdAt`) VALUES
 (835, '1202290624', 'Login into dashboard', '2026-04-01 09:35:25'),
 (836, '1202285657', 'Login into dashboard', '2026-04-02 00:11:26'),
 (837, '1202285657', 'Login into dashboard', '2026-04-02 04:29:53'),
-(838, '1202285657', 'Login into dashboard', '2026-04-02 06:34:21');
+(838, '1202285657', 'Login into dashboard', '2026-04-02 06:34:21'),
+(839, '1202266026', 'New Registration', '2026-04-04 11:28:50'),
+(840, '1202266026', 'Login into dashboard', '2026-04-04 12:21:43');
 
 -- --------------------------------------------------------
 
@@ -1667,7 +1670,9 @@ INSERT INTO `audit_logs` (`id`, `internetid`, `device`, `ipAddress`, `datenow`) 
 (686, '1202290624', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36', '105.116.14.219', '2026-04-01 17:35:25'),
 (687, '1202285657', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36', '106.101.76.202', '2026-04-02 08:11:26'),
 (688, '1202285657', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36', '221.167.211.238', '2026-04-02 12:29:53'),
-(689, '1202285657', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36', '106.101.70.19', '2026-04-02 14:34:21');
+(689, '1202285657', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36', '106.101.70.19', '2026-04-02 14:34:21'),
+(690, '1202266026', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '102.91.92.234', '2026-04-04 19:28:50'),
+(691, '1202266026', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '102.91.92.234', '2026-04-04 20:21:43');
 
 -- --------------------------------------------------------
 
@@ -1804,7 +1809,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `website_name`, `website_tel`, `website_email`, `website_address`, `image`, `padiwise_sms`, `billing_code`, `kyc_status`, `transfer`, `cot_code`, `tax_code`, `imf_code`, `otp_code`, `cardfee`, `selffee`, `wirefee`, `domesticfee`, `loanlimit`, `domesticlimit`, `wirelimit`, `currency`, `created_at`) VALUES
-(1, 'DathPage Federal Union', '16052151339', 'support@dathpagefederalunion.online', '3 Abbey Road, San Francisco CA 94102', 'logo.png', 0, 1, 0, 1, 'COT1234', 'TAX1234', 'IMF1234', 0, '20', '28', '35', '30', '1000000', '50000000', '50000000', '$', '2023-03-28 14:51:33');
+(1, 'Access Bridge', '16052151339', 'support@accessbridge.online', '3 Abbey Road, San Francisco CA 94102', 'logo.png', 0, 1, 0, 1, 'COT1234', 'TAX1234', 'IMF1234', 0, '20', '28', '35', '30', '1000000', '50000000', '50000000', '$', '2023-03-28 14:51:33');
 
 -- --------------------------------------------------------
 
@@ -1848,7 +1853,7 @@ CREATE TABLE `smtp_setting` (
 --
 
 INSERT INTO `smtp_setting` (`id`, `host`, `username`, `smtp_from`, `password`, `port`, `display_name`, `smtp_auth`) VALUES
-(1, 'template.dathpagefederalunion.online', 'support@template.dathpagefederalunion.online', 'support@template.dathpagefederalunion.online', 'Omo4real@', '465', 'DathPage Federal Union', 'ssl');
+(1, 'fast.dathpagefederalunion.online', 'support@fast.dathpagefederalunion.online', 'support@fast.dathpagefederalunion.online', 'Omo4real@', '465', 'Access Bridge', 'ssl');
 
 -- --------------------------------------------------------
 
@@ -2154,13 +2159,13 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=839;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=841;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -2172,7 +2177,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `audit_logs`
 --
 ALTER TABLE `audit_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=690;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=692;
 
 --
 -- AUTO_INCREMENT for table `card`
