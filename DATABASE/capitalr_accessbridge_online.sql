@@ -1853,7 +1853,7 @@ CREATE TABLE `smtp_setting` (
 --
 
 INSERT INTO `smtp_setting` (`id`, `host`, `username`, `smtp_from`, `password`, `port`, `display_name`, `smtp_auth`) VALUES
-(1, 'fast.dathpagefederalunion.online', 'support@fast.dathpagefederalunion.online', 'support@fast.dathpagefederalunion.online', 'Omo4real@', '465', 'Access Bridge', 'ssl');
+(1, 'accessbridge.online', 'support@accessbridge.online', 'support@accessbridge.online', 'Omo4real@', '465', 'Access Bridge', 'ssl');
 
 -- --------------------------------------------------------
 

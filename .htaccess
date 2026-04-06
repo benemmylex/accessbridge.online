@@ -28,10 +28,6 @@
 
 RewriteEngine On
 
-# Redirect all traffic to app.dathpagefederalunion.online
-#RewriteCond %{HTTP_HOST} !^app\.dathpagefederalunion\.online$ [NC]
-#RewriteRule ^.*$ https://app.dathpagefederalunion.online/ [R=301,L]
-
 # Allow CORS
 <IfModule mod_headers.c>
   Header set Access-Control-Allow-Origin "*"
